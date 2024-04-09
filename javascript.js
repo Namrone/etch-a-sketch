@@ -13,7 +13,6 @@ function startPaint(){
 
 function printGrid(gridAmount){
     let cellSize = (960/gridAmount);
-    console.log(cellSize);
     for(let row = 0; row < gridAmount; row++){
         const rowCreation = document.createElement("div");
         rowCreation.classList.add("row");
@@ -25,17 +24,23 @@ function printGrid(gridAmount){
         rowCreation.style.boxSizing = "border-box";
         grid.appendChild(rowCreation);
         for(let column = 0; column < gridAmount; column++){
-            const divSquare = document.createElement("button");
+            const divSquare = document.createElement("div");
             divSquare.classList.add("cell");
             divSquare.style.height = cellSize + "px";
             divSquare.style.width = cellSize + "px";
-            divSquare.style.backgroundColor = "white";
             divSquare.style.border = "2px solid black";
             divSquare.style.flexGrow = "1";
             divSquare.style.boxSizing = "border-box";
+            divSquare.style.opacity = 0;
             rowCreation.appendChild(divSquare);
             divSquare.addEventListener("mouseover", function changeColor(){
-                divSquare.style.backgroundColor = "grey";
+                let red = Math.floor(Math.random() * 256);  
+                let green = Math.floor(Math.random() * 256);
+                let blue = Math.floor(Math.random() * 256);
+                divSquare.style.background = "rgb("+ red + " " + green + " " + blue + "/" + "40%)";
+                if(parseInt(divSquare.style.opacity) <= 0.9){
+                    divSquare.style.opacity = +divSquare.style.opacity + 0.1;
+                }
             });
         };
     };
