@@ -2,7 +2,6 @@ const grid = document.querySelector(".container");
 
 function startPaint(){
     deleteCells();
-    console.log(deletion);
     let gridAmount = 0;
     while(gridAmount < 1 || gridAmount > 100){
     gridAmount = prompt("Please enter how many cells per side you'd like (between 1-100):");
@@ -12,9 +11,8 @@ function startPaint(){
 
 function printGrid(gridAmount){
     for(let row = 0; row < gridAmount; row++){
-        let rowName = "row" + row;
         const rowCreation = document.createElement("div");
-        rowCreation.classList.add(rowName);
+        rowCreation.classList.add("row");
         grid.appendChild(rowCreation);
         for(let column = 0; column < gridAmount; column++){
             const divSquare = document.createElement("button");
@@ -31,11 +29,10 @@ function printGrid(gridAmount){
     };
 }
 
-const deletion = document.getElementsByClassName("cell");
-
 function deleteCells(){
-    while(deletion.firstChild){
-        deletion.removeChild(deletion.lastChild);
+    const deletion = document.getElementsByClassName("row");
+    while(deletion[0]){
+        deletion[0].parentNode.removeChild(deletion[0]);
     }
 }
 
