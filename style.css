@@ -1,3 +1,6 @@
 .container{
-    
+    height: 960px;
+    width: 960px;
+    border: 2px solid black;
+    box-sizing: border-box;
 }
