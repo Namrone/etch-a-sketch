@@ -31,7 +31,7 @@ function printGrid(gridAmount){
             divSquare.style.border = "2px solid black";
             divSquare.style.flexGrow = "1";
             divSquare.style.boxSizing = "border-box";
-            divSquare.style.opacity = 0;
+            divSquare.style.opacity = 0.1;
             rowCreation.appendChild(divSquare);
             divSquare.addEventListener("mouseover", function changeColor(){
                 let red = Math.floor(Math.random() * 256);  

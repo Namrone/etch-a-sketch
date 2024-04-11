@@ -2,4 +2,12 @@
     height: 960px;
     width: 960px;
     box-sizing: border-box;
+    border: 2px solid black;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
